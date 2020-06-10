@@ -10,12 +10,23 @@ magento-in-docker apply magento 2.3.5.p1
 
 > #### 1, git clone 
 
+- Git 
+
 ```$xslt
 
 git clone https://github.com/234146326/magento-in-docker.git && cd magento-in-docker && docker-compose up -d && docker ps 
 
 
 ``` 
+
+- composer (https://packagist.org/packages/jerryxu/magento-in-docker)
+
+```$xslt
+
+composer create-project jerryxu/magento-in-docker && cd magento-in-docker && docker-compose up -d && docker ps
+
+```
+
 
 > #### 2, goto container 
 
