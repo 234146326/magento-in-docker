@@ -1,0 +1,13 @@
+{
+    "name": "jerryxu/magento-in-docker",
+    "description": "magento-in-docker",
+    "type": "project",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "jerryxu",
+            "email": "15889984263@163.com"
+        }
+    ],
+    "require": {}
+}
