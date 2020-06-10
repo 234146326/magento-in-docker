@@ -1,7 +1,7 @@
 # magento-in-docker
-magento-in-docker 
+magento-in-docker apply magento 2.3.5.p1
 
-## #Prerequisites
+## #Prerequisites 
 
 - ### docker
 - ###[magento doc](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/nginx.html) 
