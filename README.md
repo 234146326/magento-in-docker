@@ -107,6 +107,31 @@ bin/magento setup:install \
 
 ```
 
+## # Release production
+
+> Must guarantee you set port is already open in security group and SELinux and iptables has been set up correctly.
+
+
+### | **File permissions
+
+#### - *When the server fails to run successfully, execute the command to set the necessary permissions for files and folders.
+
+
+```sybase
+
+find app/code lib pub/static app/etc generated/code generated/metadata var/view_preprocessed \( -type d -or -type f \) -exec chmod g-w {} + && chmod o-rwx app/etc/env.php && find app/code lib var generated vendor pub/static pub/media app/etc \( -type d -or -type f \) -exec chmod g+w {} + && chmod o+rwx app/etc/env.php && chmod 777 -R var && chmod 777 -R generated && chmod 777 -R app/etc && rm -rf var/cache/* var/page_cache/* var/generation/*
+
+```
+
+#### - More  
+ 
+ ( In the case of docker, there is no need to execute this command. )
+
+```sybase
+
+chown -R <U:G> public/*
+
+```
 
 ## #More about
 
