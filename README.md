@@ -55,6 +55,19 @@ https://www.cnblogs.com/q1104460935/p/13047522.html
 
 > ####2, goto pubilc dir
 
+##### a), VIM ./phpdocker/nginx/nginx.conf
+
+
+delete "#" for "# include /application/public/nginx.conf.sample;" ：( Not in <php-fpm CONTAINER ID> )
+
+```$xslt
+
+include /application/public/nginx.conf.sample;
+
+```
+
+##### b), execution
+
 ```$xslt
 
 cd public && touch command_install.sh && chmod +x command_install.sh 
@@ -62,7 +75,8 @@ cd public && touch command_install.sh && chmod +x command_install.sh
 ```
 > ####3, Find Command_install.sh in public dir.
 
-Write this code：
+
+Write this code：( Not in <php-fpm CONTAINER ID> )
 
 ```$xslt
 
@@ -85,7 +99,7 @@ bin/magento setup:install \
 
 ```
 
-## #Step3 Install magento 
+## #Step3   Install magento (in <php-fpm CONTAINER ID>)
 
 ```$xslt
 
