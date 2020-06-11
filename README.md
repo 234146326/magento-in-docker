@@ -57,7 +57,7 @@ https://www.cnblogs.com/q1104460935/p/13047522.html
 
 ```$xslt
 
-cd public && touch command_install.sh && chmod command_install.sh 
+cd public && touch command_install.sh && chmod +x command_install.sh 
 
 ```
 > ####3, Find Command_install.sh in public dir.
