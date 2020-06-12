@@ -114,22 +114,39 @@ bin/magento setup:install \
 
 ### | **File permissions
 
+https://devdocs.magento.com/guides/v2.3/config-guide/prod/prod_file-sys-perms.html
+
 #### - *When the server fails to run successfully, execute the command to set the necessary permissions for files and folders.
 
+a) , Make code files and directories writable
 
-```sybase
+```bash
 
-find app/code lib pub/static app/etc generated/code generated/metadata var/view_preprocessed \( -type d -or -type f \) -exec chmod g-w {} + && chmod o-rwx app/etc/env.php && find app/code lib var generated vendor pub/static pub/media app/etc \( -type d -or -type f \) -exec chmod g+w {} + && chmod o+rwx app/etc/env.php && chmod 777 -R var && chmod 777 -R generated && chmod 777 -R app/etc && rm -rf var/cache/* var/page_cache/* var/generation/*
+chmod -R u+w .
 
 ```
 
-#### - More  
- 
- ( In the case of docker, there is no need to execute this command. )
+b) , Set permissions and setgid
+To set setgid and permissions for developer mode:
 
-```sybase
+```bash
 
-chown -R <U:G> public/*
+find var generated pub/static pub/media app/etc -type f -exec chmod g+w {} + && find var generated pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+
+```
+
+c) , Make code files and directories read-only
+
+```bash
+
+bin/magento deploy:mode:set production
+
+```
+
+```bash
+
+find app/code lib pub/static app/etc generated/code generated/metadata var/view_preprocessed \( -type d -or -type f \) -exec chmod g-w {} + && chmod o-rwx app/etc/env.php
+
 
 ```
 
